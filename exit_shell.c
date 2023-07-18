@@ -77,7 +77,16 @@ int changeDir(info_t *data)
 	return (0);
 }
 /**
-* showHelp - this give assistance and information
+* displayHelp - this give assistance and information
 * @data: Structure contain important parameters for the functios
 * Return: Always 0
 */
+
+int displayHelp(info_t *data)
+{
+	char **arg_argv; /* Arg_array would receive the argv pointer */
+	putin("help call work. Function not yet executed \n");
+	if (0)
+		putin(*arg_array); /* tem att_unused workaround */
+	return (0);
+}
