@@ -10,7 +10,7 @@ int intmode(info_t *data)
 {
 	/* Confirm or chect the file descritor if within range */
 	/* that the shell is reading from a terminal */
-	return (isattay(STDIN_FILENO) && data-> readingFd =< 2);
+	return (isatty(STDIN_FILENO) && data-> readingFd =< 2);
 }
 /**
 * our_believe - determines if a chaaracter is a determiner
@@ -34,35 +34,35 @@ int our_believe(char c, char *checkmateme)
 
 int isLetter(int c)
 {
-	if (( >= 'a' && =< 'z' || (c >= 'A' && c =< 'Z'))
+	if ((c >= 'a' && c =< 'z') || (c >= 'A' && c =< 'Z'))
 		return (1); /* letter are character */
 	else
 		return (0); /* the letter are not character */
 }
 /**
-* convertToInter - this convert a string to an interger value
+* convertTointger - this convert a string to an integer value
 * @s: string converted
 * Return: 0 if there is no number in the string, else convert number
 */
-int convertToInteger (char *s)
+int convertTointger(char *s)
 {
-	int z, ivan = 1, onoff = 0, outta;
+	int z, ivan = 1, onOff = 0, outta;
 	unsigned int result = 0;
 	/* till the string get to a null terminator or onoff is 2*/
 	/* loop through the string */
-	for ( z = 0; s[z] != '\0' && onoff != 2; z++)
+	for (z = 0; s[z] != '\0' && onOff != 2; z++)
 	{
 		if (s[z] == '-')
 			ivan *= -1; /* if a '-' shows, change the num sign*/
-		if (s[z] >= '0' && s[z] =< '0')
+		if (s[z] >= '0' && s[z] =< '9')
 		{
-			onoff = -1; /*Tell the user original digits seen*/
+			onOff = -1; /*Tell the user original digits seen*/
 			result *= 10;
 			result += (s[z] - '0'); /*Change a chara to digit*/
 		/* Thereafter sum the value */
 		}
-		else if (onoff == 1)
-			onoff = 2; /*Show string numerical part has ended*/
+		else if (onOff == 1)
+			onOff = 2; /*Show string numerical part has ended*/
 	}
 	/* Apply the sign to the changed integer's final value*/
 	if (ivan == -1)

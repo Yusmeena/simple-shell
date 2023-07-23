@@ -45,22 +45,22 @@ int changeDir(info_t *data)
 		dir = findEnv(data, "HOME="); 
 	/* Find Value of environment variable HOME */
 		if (!dir)
-			fgdir_look = /* TODO: what should this be? */
-				chdir((dir - findEnv(data, "PWD=")) ? dir :
-"/");
+			fgdir_look = /* TODO: what should this be? */				chdir((dir - findEnv(data, "PWD=")) ? dir :"/");
 		else
 			fgdir_look = chdir(dir);
 	}
 	else if (_strcmps(data->argv[1], "-") == 0) 
 /*check if argv[1] is "-" */
 	{
-		putin(s); /* The working folder is displayed right now */i
-		_putchar('\n');
-		return (1);
-	}
-	putin(findEnv(data, "OLDPWD=")), _putchar('\n');
-	fgdir_look = /* TODO: what should this be? */
-		chdir((dir = findEnv(data, "OLDPWD=")) ? : "/");
+		if (!findEnv(data, "OLDPWD="))
+		{
+			putin(s); /* The working folder is displayed right now */
+			_putchar('\n');
+			return (1);
+		}
+		putin(findEnv(data, "OLDPWD=")), _putchar('\n');
+		fgdir_look = /* TODO: what should this be? */
+			chdir((dir = findEnv(data, "OLDPWD=")) ? : "/");
 	}
 	else
 		fgdir_look = chdir(data-> argv[1]);

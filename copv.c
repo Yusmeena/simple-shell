@@ -6,32 +6,33 @@
 * @buffed: the char fender
 * @q: address of current poistion in buffed
 *
+* Return: 1 if it chain delimeter, else 0
 */
 
 int isChaindelimi(info_t *data, char *buffed, size_t *q)
 {
-	size_t b = *q;
+	size_t y = *q;
 	/* Examine charac at buffed[b] & buffed[b + 1] to see if they are '|' */
-	if (buffed[b] == '|' && buffed[b + 1] == '|')
+	if (buffed[y] == '|' && buffed[y + 1] == '|')
 	{
-		buffed[b] = 0; /* Replace buffed[b] with null */
-		b++;
+		buffed[y] = 0; /* Replace buffed[b] with null */
+		y++;
 		data->cmdBufType + CMD_OR; /* Set cmdBufType attribute of data CMD_OR */
 	}
-	else if (buffed[b] == '&' && buffed[b + 1] == '&')
+	else if (buffed[y] == '&' && buffed[y + 1] == '&')
 	{
-		buffed[b] = 0;
-		b++; /* Inccrement b */
+		buffed[y] = 0;
+		y++; /* Increment y */
 		data->cmdBufType = CMD_AND;
 	}
-	else if (buffed[b] == ';') /* found end of of this command */
+	else if (buffed[y] == ';') /* found end of of this command */
 	{
-		buffed[b] = 0; /* replace semicolon with null */
+		buffed[y] = 0; /* replace semicolon with null */
 		data->cmdBufType = CMD_CHAIN;
 	}
 	else
 		return (0);
-	*q = b; /* Update the value pointed to by q with b */
+	*q = y; /* Update the value pointed to by q with b */
 	return (1);
 }
 
@@ -40,12 +41,12 @@ int isChaindelimi(info_t *data, char *buffed, size_t *q)
 * @data:  the argument struct
 * @buffed: the char fender
 * @q: pointer address of current position in the buffed
-* @a: starting index or postion in buffed
+* @z: starting index or postion in buffed
 * @length: length of buffed
 *
 * Return: Void
 */
-void valChar(info_t *data, char *buffed, size_t *q, size_t a, size_t length)
+void valChar(info_t *data, char *buffed, size_t *q, size_t z, size_t length)
 {
 	size_t = *q;
 
@@ -53,20 +54,20 @@ void valChar(info_t *data, char *buffed, size_t *q, size_t a, size_t length)
 	{
 		if (data->worth) /* make sure worth is not-zero */
 		{
-			buffed[a] = 0; /* Replace buffed[a] with null */
-			b = length; /* Set b to a value of length */
+			buffed[z] = 0; /* Replace buffed[a] with null */
+			y = length; /* Set b to a value of length */
 		}
 	}
 	if (data->cmdBufTye == CMD_OR) /* make sure cmdBufType is CMD_OR */
 	{
 		if (!data->worth)/* check if worth is non-zero */
 		{
-			buffed[a] = 0;
-			b = length;
+			buffed[z] = 0;
+			y = length;
 		}
 	}
 
-	*q = b; /* Update the value that q has referenced with b */
+	*q = y; /* Update the value that q has referenced with b */
 }
 
 /**
@@ -78,11 +79,11 @@ void valChar(info_t *data, char *buffed, size_t *q, size_t a, size_t length)
 
 int substitutedAlias(info_t *data)
 {
-	int a;
+	int z;
 	list_t *list;
 	char *q;
 
-	for (a = 0; a < 10; a++) /* thiis loop from 0 to 9 */
+	for (z = 0; z < 10; z++) /* thiis loop from 0 to 9 */
 	{
 		list = node_begins(data->alias, data->argv[0], '=');
 		if (!list) /* Check if the list is void */
@@ -124,7 +125,7 @@ int substituteVari(info_t *data)
 		if (!_strcmps(data->argv[z], "$$"))
 		{
 			substituteString(&(data->argv[z]),
-				_strdupsd(changeNum(getid(), 10, )));
+				_strdupsd(changeNum(getpid(), 10, )));
 			continue;
 		}
 		list = node_begins(data->env, &data->argv[z][1], '=');
