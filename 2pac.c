@@ -1,4 +1,5 @@
 #include "shell.h"
+
 /**
  * main - Entry point of the shell program.
  * @argc: Argument count.
@@ -42,3 +43,4 @@ int main(int argc, char **argv)
 	execute_shell(data, argv);
 	return (EXIT_SUCCESS);
 }
+
