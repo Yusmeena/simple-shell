@@ -28,11 +28,11 @@ int exitShell(info_t *data)
 	return (-2);
 }
 /**
-* changeDir - modifies the present folder of the process
+* Dirchange - modifies the present folder of the process
 * @data: Structure contain important parameters for the function
 * Return: Always 0
 */
-int changeDir(info_t *data)
+int Dirchange(info_t *data)
 {
 	char *s, *dir, fender[1024];
 	int fgdir_look;

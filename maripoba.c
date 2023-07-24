@@ -17,7 +17,7 @@ ssize_t bufferEnter(info_t *data, char **buffed, size_t *len)
 	if (!*len) /* if there nothing inside fender, fill it */
 	{
 		/* Free the memory allocated to data->cmd_buf */
-		beFreed((void **)data->cmd_buf);
+		beindepend((void **)data->cmd_buf);
 		free(*buffed);
 		*buffed = NULL;
 		signal(SIGINT, blockCtrlC); /* Set signal handler for SIGINT to blockCtrlC */
@@ -68,10 +68,10 @@ ssize_t getEnter(info_t *data)
 		y = z; /* ry fresh iterator to current buffed index */
 		q = buffed + z; /* get pointer for return */
 
-		valCha(data, buffed, &y, z, len);
+		valChar(data, buffed, &y, z, len);
 		while (y < len) /* iterate to semicolon or end */
 		{
-			if (isChaindelim(data, buffed, &y))
+			if (isChaindelimi(data, buffed, &y))
 				break;
 			y++;
 		}
@@ -145,9 +145,9 @@ int getNexLine(info_t *data, char **word, size_t *length)
 		return (q ? free(q), -1 : -1);
 
 	if (s)
-		concatenateStrings(new_p, buffed + z, k - z);
+		concatenate_strings(new_p, buffed + z, k - z);
 	else
-		_copyString(new_p, buffed + z, k - a + 1);
+		_copystring(new_p, buffed + z, k - a + 1);
 
 	s += k - z; /* Update 's' by adding the difference between 'k' and 'z' */
 	z = k; /* Update 'z' with 'k' */

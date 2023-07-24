@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
- * copy_string - copies string.
+ * _copystring - copies string.
  * @dest: The destination the copies string will go.
  * @src: The source for the string.
  * @n: The number of characters that are supposed to be copied.
  * Return: The resulting copied string.
  */
-char *copy_string(char *dest, char *src, int n)
+char *_copystring(char *dest, char *src, int n)
 {
     int i, j;
     char *result = dest;
@@ -44,31 +44,28 @@ char *concatenate_strings(char *dest, char *src, int n)
     int i, j;
     char *result = dest;
 
-    i = 0;
-    while (dest[i] != '\0')
-        i++;
-
-    j = 0;
-    while (src[j] != '\0' && j < n)
-    {
-        dest[i] = src[j];
-        i++;
-        j++;
-    }
-
-    if (j < n)
-        dest[i] = '\0';
-
-    return (result);
+	i =0;
+	j = 0;
+	while (dest[i] != '\0')
+       		 i++;
+	while (src[j] != '\0' && j < n)
+	{
+        	dest[i] = src[j];
+        	i++;
+        	j++;
+	 }
+	if (j < n)
+		dest[i] = '\0';
+	return (result);
 }
 
 /**
- * find_character - Searches for a character in a string.
+ * *strChr - Searches for a character in a string.
  * @s: The string to be parsed.
  * @c: The character to look for.
  * Return: Pointer to the memory area of the found character in the string (s).
  */
-char *find_character(char *s, char c)
+char *strChr(char *s, char c)
 {
     do {
         if (*s == c)

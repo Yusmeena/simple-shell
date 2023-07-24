@@ -48,7 +48,7 @@ int isChaindelimi(info_t *data, char *buffed, size_t *q)
 */
 void valChar(info_t *data, char *buffed, size_t *q, size_t z, size_t length)
 {
-	size_t = *q;
+	size_t y = *q;
 
 	if (data->cmdBufType == CMD_AND) /* Check if cmdBufType is CMD_AND */
 	{
@@ -118,37 +118,37 @@ int substituteVari(info_t *data)
 			continue; /* Prior the following iteration */
 		if (!_strcmps(data->argv[z], "$?")) /* Check if the member is "$?" */
 		{
-			substituteString(&(data->argv[z]),
+			substitutedString(&(data->argv[z]),
 				_strdupsd(changeNUm(data->worth, 10, 0)));
 			continue;
 		}
 		if (!_strcmps(data->argv[z], "$$"))
 		{
-			substituteString(&(data->argv[z]),
-				_strdupsd(changeNum(getpid(), 10, )));
+			substitutedString(&(data->argv[z]),
+				_strdupsd(changeNUm(getpid(), 10, )));
 			continue;
 		}
 		list = node_begins(data->env, &data->argv[z][1], '=');
 		if (list) /* Check if a matching node can be found */
 		{
-			substituteString(&(data->data->argv[z]),
+			substitutedString(&(data->data->argv[z]),
 				_strdupsd(strChr(list->txt, '=') + 1));
 			continue;
 		} /* Substitute the member with void or empty string */
-		substituteString(&(data->argv[z], _strdusd(""));
+		substitutedString(&(data->argv[z], _strdusd(""));
 	}
 	return (0);
 }
 
 /**
-* substituteString - replaces  a specific string with new  string
+* substitutedString - replaces  a specific string with new  string
 * @plant: pointer address of old string
 * @harvest: newly formed string
 *
 * Return: 1 if replaced, else 0
 */
 
-int substituteString(char **plant, char *harvest)
+int substitutedString(char **plant, char *harvest)
 {
 	free(*plant); /* Free memmory pointed to by pointer plant */
 	*plant = harvest; /* new value would be added to the value pointed to by plant */
