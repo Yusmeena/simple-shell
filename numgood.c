@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
-* copyString - copies a string
+* copyString1 - copies a string
 * @keeper: the keeper
 * @place - the source
 *
 * Return: pointer to the end point
 */
-char *copyString(char *kepper, char *place)
+char *copyString1(char *kepper, char *place)
 {
 	int z = 0;
 	/* Look for exceptional circumstances, for example when the destination and end */
@@ -34,7 +34,7 @@ char *copyString(char *kepper, char *place)
 */
 char *_strdupsd(const char *txt)
 {
-	int lenght = 0;
+	int length = 0;
 	char *ret;
 	/* be sure string entered is NULL */
 	if (txt == NULL)
@@ -48,7 +48,7 @@ char *_strdupsd(const char *txt)
 		return (NULL);
 	/*Reverse-transfer entered string's characters to replicate or clone string */
 	for (length++; length --;)
-		ret[length] = *= --txt;
+		ret[length] = *--txt;
 	return (ret);
 }
 
