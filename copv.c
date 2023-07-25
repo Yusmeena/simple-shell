@@ -125,7 +125,7 @@ int substituteVari(info_t *data)
 		if (!_strcmps(data->argv[z], "$$"))
 		{
 			substitutedString(&(data->argv[z]),
-				_strdupsd(changeNUm(getpid(), 10,)));
+				_strdupsd(changeNUm(getpid(), 10, 0)));
 			continue;
 		}
 		list = node_begins(data->env, &data->argv[z][1], '=');

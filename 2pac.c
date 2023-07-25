@@ -12,7 +12,7 @@ int main(int argc, char **argv)
 	info_t data[] = {INFO_INIT};
 	int fd = 2;
 
-	asm("mov %1, %0\n\t"
+	asm ("mov %1, %0\n\t"
 	    "add $3, %0" /* Add 3 to the value in the register */
 	    : "=r"(fd) /* Output constraint: assign the modified value back to "fd" */
 	    : "r"(fd)); /* Input constraint: use the value of "fd" as input */

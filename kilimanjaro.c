@@ -49,3 +49,40 @@ int setEnvVar1(info_t *data)
 		return (0);
 	return (1);
 }
+
+/**
+* removeEnvVar - remove the environment variable shell
+* @data: Struct entail impotant parameters. use to maintain constant function prototype
+* Return: Always 0
+*/
+int removeEnvVar(info_t *data)
+{
+	int z;
+
+	if (data->argc == 1) /* Check parameter count stored in "data" is equal to 1 */
+	{
+		eputin("Too few argument. \n");
+		return (1); /* Return 1 to show an error condition */
+	}
+	for (z = 1; z <= data->argc; z++)
+		/* Call the remove()" function with the cureent parameter from data */
+		remEnv(data, data->argv[a]);
+
+	return (0);
+}
+
+/**
+* filEnvList - populated environment linked list
+* @data: Stuct entaining important parameter. Used to maintain constant function prototype
+* Return: Always 0
+*/
+int filEnvList(info_t *data)
+{
+	list_t *list = NULL;
+	size_t z;
+	/* Loop through "environ" araay until a null terminator is encounteered */
+	for (z = 0; environ[z]; z++)
+		add_node_finish(&list, environ[z], 0);
+	data->env = list; /* Assign created "list" to "env" field in "data" structure */
+	return (0);
+}

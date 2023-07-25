@@ -41,18 +41,18 @@ char *_copystring(char *dest, char *src, int n)
 char *concatenate_strings(char *dest, char *src, int n)
 {
 	int i, j;
-	char *result = dest;
+	char *s = dest;
 
-	i =0;
+	i = 0;
 	j = 0;
-	while (dest[i] != '\0')
-       		 i++;
+	while (dest[i] != '\0') /* locate first string(destina) end */
+		i++;
 	while (src[j] != '\0' && j < n)
 	{
-        	dest[i] = src[j];
-        	i++;
-        	j++;
-	 }
+		dest[i] = src[j];
+		i++;
+		j++;
+	}
 		if (j < n)
 		dest[i] = '\0';
 		return (result);

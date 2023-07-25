@@ -1,3 +1,5 @@
+#include "shell.h"
+
 /**
  * initializeData - Initializes the info_t struct.
  * @data: Pointer to the struct address.

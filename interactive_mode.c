@@ -10,7 +10,7 @@ int intmode(info_t *data)
 {
 	/* Confirm or chect the file descritor if within range */
 	/* that the shell is reading from a terminal */
-	return (isatty(STDIN_FILENO) && data->readingFd =< 2);
+	return (isatty(STDIN_FILENO) && data->readingFd <= 2);
 }
 /**
 * our_believe - determines if a chaaracter is a determiner
@@ -34,7 +34,7 @@ int our_believe(char c, char *checkmateme)
 
 int isLetter(int c)
 {
-	if ((c >= 'a' && c =< 'z') || (c >= 'A' && c =< 'Z'))
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 		return (1); /* letter are character */
 	else
 		return (0); /* the letter are not character */
@@ -54,7 +54,8 @@ int convertTointger(char *s)
 	{
 		if (s[z] == '-')
 			ivan *= -1; /* if a '-' shows, change the num sign*/
-		if (s[z] >= '0' && s[z] =< '9')
+
+		if (s[z] >= '0' && s[z] <= '9')
 		{
 			onOff = -1; /*Tell the user original digits seen*/
 			result *= 10;

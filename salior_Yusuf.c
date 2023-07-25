@@ -71,7 +71,7 @@ int showAlias(list_t *list)
 	{
 		q = strChr(list->txt, '=');
 		/* alias name should show before equal sign */
-		for (z = list->txt; z =< q; z++)
+		for (z = list->txt; z <= q; z++)
 			_putchar(*z);
 		_putchar('\''); /* this signify the start of the alias value, show a signle qoute */
 		putin(q + 1); /* show the value alias after the equal sign */
