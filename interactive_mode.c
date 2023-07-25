@@ -10,7 +10,7 @@ int intmode(info_t *data)
 {
 	/* Confirm or chect the file descritor if within range */
 	/* that the shell is reading from a terminal */
-	return (isatty(STDIN_FILENO) && data-> readingFd =< 2);
+	return (isatty(STDIN_FILENO) && data->readingFd =< 2);
 }
 /**
 * our_believe - determines if a chaaracter is a determiner

@@ -89,7 +89,7 @@ int substitutedAlias(info_t *data)
 		if (!list) /* Check if the list is void */
 			return (0);
 		free(data->argv[0]); /* Free memory givento data->arg[0] */
-		q = strChr(list-> txt, '='); /* Look for fist occurrence of '=' */
+		q = strChr(list->txt, '='); /* Look for fist occurrence of '=' */
 		/* in list->txt and assign its address to q */
 		if (!q)
 			return (0);
@@ -111,7 +111,7 @@ int substituteVari(info_t *data)
 	int z = 0;
 	list_t *list;
 	/* Iterate through data->argv member till null element is encounter*/
-	for ( z = 0; data->argv[z]; z++)
+	for (z = 0; data->argv[z]; z++)
 	{
 		/* check if member begins not with '$' or is an empty string */
 		if (data->argv[z][0] != '$' || !data->argv[z][1])
@@ -125,7 +125,7 @@ int substituteVari(info_t *data)
 		if (!_strcmps(data->argv[z], "$$"))
 		{
 			substitutedString(&(data->argv[z]),
-				_strdupsd(changeNUm(getpid(), 10, )));
+				_strdupsd(changeNUm(getpid(), 10,)));
 			continue;
 		}
 		list = node_begins(data->env, &data->argv[z][1], '=');

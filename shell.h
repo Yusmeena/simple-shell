@@ -14,7 +14,7 @@
 
 #define READ_BUFFER 1024
 #define WRITE_BUFFER 10224
-#define VBUFFER_FLUSHER -1
+#define BUFFER_FLUSHER -1
 #define CMD_NORM 0
 #define CMD_OR 1
 #define CMD_AND 2
@@ -123,36 +123,36 @@ char copyString(char *, char *);
 char *_strdupsd(const char *);
 void putin(char *);
 int _putchar(char);
-char *_copyString(char *, char *, int);
+char *_copystring2(char *, char *, int);
 
 
 
-char *concatenateStrings(char *, char  *, int);
+char *concatenate_strings(char *, char *, int);
 char *strChr(char *, char);
 char **strSplit(char *, char);
 char **strSplited1(char *, char);
 char *fillMemory(char *, char, unsigned int);
 void freeStringArray(char **);
-int beFreed(void **word);
+int independ(void **word);
 void *reallocateMemory(void *, unsigned int, unsigned int);
-int invlove(info_t *);
-int we_believe(char, char *);
-int isAlphabetic(int);
-int convertToInteger(char *);
+int intmode(info_t *);
+int our_believe(char, char *);
+int isLetter(int);
+int convertToIntger(char *);
 int errAtoi(char *);
 int display_err(info_t *, char *);
 int printDD(int, int);
-char *changeNum(long int, int, int);
+char *changeNUm(long int, int, int);
 void vanishComments(char *);
-int shellExit(info_t *);
-int changeDir(info_t *);
-int showHelp(info_t *);
+int exitShell(info_t *);
+int Dirchange(info_t *);
+int displayHelp(info_t *);
 int displayHistory(info_t *);
 int mineAlias(info_t *);
 
 
-ssize_t getInput(info_t);
-int getNextLine(info_t *, char **, size_t *);
+ssize_t getEnter(info_t);
+int getNexLine(info_t *, char **, size_t *);
 void blockCtrlC(int);
 void cleanData(info_t *);
 void fixData(info_t *, char **);
@@ -182,11 +182,11 @@ char **list_to_strings(list_t *);
 size_t displayList(const list_t *);
 list_t *node_begins(list_t *, char *, char);
 ssize_t get_node_index(list_t *, list_t);
-int isChainDelim(info_t *, char *, size_t *);
-void valCha(info_t *, char *, size_t *, size_t, size_t);
-int substituteAlias(info_t *);
-int substituteVar(info_t *);
-int substituteString(char **, char *);
+int isChaindelimi(info_t *, char *, size_t *);
+void valChar(info_t *, char *, size_t *, size_t, size_t);
+int substitutedAlias(info_t *);
+int substituteVari(info_t *);
+int substitutedString(char **, char *);
 
 #endif
 

@@ -1,7 +1,7 @@
 /**
 * *fillMem - fills memmory with a constant byte
 * @s: the pointer to the memory address
-* @b: the byte to fill *s with
+* @y: the byte to fill *s with
 * @num: the amount of byte to be filled
 * Return: (s) a pointer to the memory addres s
 */

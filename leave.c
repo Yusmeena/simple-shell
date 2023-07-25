@@ -9,27 +9,26 @@
  */
 char *_copystring(char *dest, char *src, int n)
 {
-    int i, j;
-    char *result = dest;
+	int i, j;
+	char *result = dest;
 
-    i = 0;
-    while (src[i] != '\0' && i < n - 1)
-    {
-        dest[i] = src[i];
-        i++;
-    }
+	i = 0;
+	while (src[i] != '\0' && i < n - 1)
+	{
+		dest[i] = src[i];
+		i++;
+	}
 
-    if (i < n)
-    {
-        j = i;
-        while (j < n)
-        {
-            dest[j] = '\0';
-            j++;
-        }
-    }
-
-    return (result);
+	if (i < n)
+	{
+		j = i;
+		while (j < n)
+		{
+			dest[j] = '\0';
+			j++;
+		}
+	}
+	return (result);
 }
 
 /**
@@ -41,8 +40,8 @@ char *_copystring(char *dest, char *src, int n)
  */
 char *concatenate_strings(char *dest, char *src, int n)
 {
-    int i, j;
-    char *result = dest;
+	int i, j;
+	char *result = dest;
 
 	i =0;
 	j = 0;
@@ -54,9 +53,9 @@ char *concatenate_strings(char *dest, char *src, int n)
         	i++;
         	j++;
 	 }
-	if (j < n)
+		if (j < n)
 		dest[i] = '\0';
-	return (result);
+		return (result);
 }
 
 /**
@@ -67,11 +66,10 @@ char *concatenate_strings(char *dest, char *src, int n)
  */
 char *strChr(char *s, char c)
 {
-    do {
-        if (*s == c)
-            return (s);
-    } while (*s++ != '\0');
-
-    return (NULL);
+	do {
+		if (*s == c)
+		return (s);
+	} while (*s++ != '\0');
+	return (NULL);
 }
 

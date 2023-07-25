@@ -3,11 +3,11 @@
 /**
 * copyString1 - copies a string
 * @keeper: the keeper
-* @place - the source
+* @place: - the source
 *
 * Return: pointer to the end point
 */
-char *copyString1(char *kepper, char *place)
+char *copyString1(char *keeper, char *place)
 {
 	int z = 0;
 	/* Look for exceptional circumstances, for example when the destination and end */
@@ -18,7 +18,7 @@ char *copyString1(char *kepper, char *place)
 	/* the NULL terminator is reach */
 	while (keeper[z])
 	{
-		kepper[z] = place[z];
+		keeper[z] = place[z];
 		z++;
 	}
 	keeper[z] = 0; /* the target string should has a null terminator added */
@@ -47,7 +47,7 @@ char *_strdupsd(const char *txt)
 	if (!ret)
 		return (NULL);
 	/*Reverse-transfer entered string's characters to replicate or clone string */
-	for (length++; length --;)
+	for (length++; length--;)
 		ret[length] = *--txt;
 	return (ret);
 }
@@ -70,14 +70,14 @@ void putin(char *txt)
 		z++;
 	}
 }
- 
+
 /**
 * _putchar - this write character c to stdout
 * @c: The character to display
 *
 * Return: On success 1
 */
-int _putchar( char c)
+int _putchar(char c)
 {
 	static int z;
 	static char buffed[WRITE_BUFFER];

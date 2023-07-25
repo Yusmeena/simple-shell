@@ -42,14 +42,14 @@ int Dirchange(info_t *data)
 		putin("TODO: >>getcwd failure emsg here<<\n");
 	if (!data->argv[1]) /* Confirm if argv[1] is given */
 	{
-		dir = findEnv(data, "HOME="); 
+		dir = findEnv(data, "HOME=");
 	/* Find Value of environment variable HOME */
 		if (!dir)
-			fgdir_look = /* TODO: what should this be? */				chdir((dir - findEnv(data, "PWD=")) ? dir :"/");
+			fgdir_look = /* TODO: what should this be? */				chdir((dir - findEnv(data, "PWD=")) ? dir : "/");
 		else
 			fgdir_look = chdir(dir);
 	}
-	else if (_strcmps(data->argv[1], "-") == 0) 
+	else if (_strcmps(data->argv[1], "-") == 0)
 /*check if argv[1] is "-" */
 	{
 		if (!findEnv(data, "OLDPWD="))
@@ -63,7 +63,7 @@ int Dirchange(info_t *data)
 			chdir((dir = findEnv(data, "OLDPWD=")) ? : "/");
 	}
 	else
-		fgdir_look = chdir(data-> argv[1]);
+		fgdir_look = chdir(data->argv[1]);
 	if (fgdir_look == -1)
 	{
 		display_err(data, "can't cd to ");
@@ -86,6 +86,7 @@ int displayHelp(info_t *data)
 {
 	char **arg_argv; /* Arg_array would receive the argv pointer */
 	putin("help call work. Function not yet executed \n");
+
 	if (0)
 		putin(*arg_array); /* tem att_unused workaround */
 	return (0);

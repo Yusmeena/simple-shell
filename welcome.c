@@ -1,14 +1,14 @@
 #include "shell.h"
 
 /**
-* *_copyString1 - thicopy string
+* *_copyString2 - thicopy string
 * @keeper: the destination string to copy to
 * @place: the string source
 * @num: number of characters to be copy
 * Return: he string copied outcome
 */
 
-int *_copyString1(char *keeper, char *place, int num)
+int *_copyString2(char *keeper, char *place, int num)
 {
 	int z, y;
 	char *s = keeper;
@@ -32,13 +32,13 @@ int *_copyString1(char *keeper, char *place, int num)
 }
 
 /**
-* *concatenateString1 - this join string or concatenation
+* *concatenateStrings2 - this join string or concatenation
 * @keeper: the first string
 * @place: the second string
-* @um: the maximum number of bytes that will be used
+* @num: the maximum number of bytes that will be used
 * Return: the resulting concatenated or joined string
 */
-char *concatenateStrings1(char *keeper, char *place, int num)
+char *concatenateStrings2(char *keeper, char *place, int num)
 {
 	int z, y;
 	char *s = keeper;
