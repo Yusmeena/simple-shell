@@ -17,7 +17,7 @@ int isChaindelimi(info_t *data, char *buffed, size_t *q)
 	{
 		buffed[y] = 0; /* Replace buffed[b] with null */
 		y++;
-		data->cmdBufType + CMD_OR; /* Set cmdBufType attribute of data CMD_OR */
+		data->cmdBufType = CMD_OR; /* Set cmdBufType attribute of data CMD_OR */
 	}
 	else if (buffed[y] == '&' && buffed[y + 1] == '&')
 	{
@@ -96,7 +96,7 @@ int substitutedAlias(info_t *data)
 		q = _strdupsd(q + 1); /* Start copying string from q + 1 & assign to q */
 		if (!q)
 			return (0);
-		data->arg[v] = q; /* Update data->argv[0] with the new value in q */
+		data->argv[0] = q; /* Update data->argv[0] with the new value in q */
 	}
 	return (0);
 }

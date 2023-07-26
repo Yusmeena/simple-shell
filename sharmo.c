@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * printInput - Display the input string to the standard error.
+ * eputin - Display the input string to the standard error.
  * @input: The string to be displayed.
  *
  * Return: None.
  */
-void printInput(char *input)
+void eputin(char *input)
 {
 	int i = 0;
 
@@ -15,19 +15,19 @@ void printInput(char *input)
 
 	while (input[i] != '\0')
 	{
-		printCharacter(input[i]);
+		eputword(input[i]);
 		i++;
 	}
 }
 
 /**
- * printCharacter - Output the character 'c' to the standard error.
+ * eputword - Output the character 'c' to the standard error.
  * @c: The character to be outputted.
  *
  * Return: On success 1.
  *         On error, returns -1 and sets errno accordingly.
  */
-int printCharacter(char c)
+int eputword(char c)
 {
 	static int index;
 	static char buffer[WRITE_BUFFER];
@@ -45,14 +45,14 @@ int printCharacter(char c)
 }
 
 /**
- * writeToFD - Write the character 'c' to the specified file descriptor 'fd'.
+ * putFD - Write the character 'c' to the specified file descriptor 'fd'.
  * @c: The character to be written.
  * @fd: The file descriptor to write to.
  *
  * Return: On success 1.
  *         On error, returns -1 and sets errno accordingly.
  */
-int writeToFD(char c, int fd)
+int putFd(char c, int fd)
 {
 	static int index;
 	static char buffer[WRITE_BUFFER];
@@ -70,14 +70,14 @@ int writeToFD(char c, int fd)
 }
 
 /**
- * printToFd - Write the input string 'str' to the specified file descriptor 'fd'.
+ * putsFdk - Write the input string 'str' to the specified file descriptor 'fd'.
  * @str: The string to be printed.
  * @fd: The file descriptor to write to.
  *
  * Return: The number of characters written.
  *         On error, returns -1 and sets errno accordingly.
  */
-int printToFd(char *str, int fd)
+int putsFdk(char *str, int fd)
 {
 	int count = 0;
 
@@ -86,7 +86,7 @@ int printToFd(char *str, int fd)
 
 	while (*str)
 	{
-		count += writeToFD(*str++, fd);
+		count += putFd(*str++, fd);
 	}
 
 	return (count);

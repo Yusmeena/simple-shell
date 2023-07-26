@@ -27,7 +27,7 @@ void prepareData(info_t *data, char **arg_vector)
 	/* Set the 'fname' component of 'data' to the 'arg_vector's first element */
 	data->fname = arg_vector[0];
 	/* Verify that the 'arg' member of the 'data' is not NULL */
-	if (data->arg)
+	if (data->argv)
 	{
 		/* 'arg' is divided into an array of strings using spaces & tabs as delimiters */
 		data->argv = strSplit(data->arg, " \t");
@@ -45,8 +45,8 @@ void prepareData(info_t *data, char **arg_vector)
 			;
 		data->argc = i;
 
-		replaceAlias(data); /* Replace aliases where necessary */
-		replaceVariables(data); /* Substitute variables as necessary */
+		substitutedAlias(data); /* Replace aliases where necessary */
+		substituteVari(data); /* Substitute variables as necessary */
 	}
 }
 

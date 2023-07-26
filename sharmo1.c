@@ -1,32 +1,32 @@
 #include "shell.h"
 
 /**
- * printInput - Displays the input string to the standard error.
- * @input: The string to be displayed.
+ * eputin - Displays the input string to the standard error.
+ * @txt: The string to be displayed.
  * Return: None.
  */
-void printInput(char *input)
+void eputin(char *txt)
 {
 	int i = 0;
 
-	if (!input) /* Check if 'input' is null or empty */
+	if (!txt) /* Check if 'input' is null or empty */
 		return;
 
 	/* Iterate through 'input' array until the null terminator is reached */
-	while (input[i] != '\0')
+	while (txt[i] != '\0')
 	{
-		printCharacter(input[i]);
+		eputword(txt[i]);
 		i++; /* Increment counter variable 'i' to move to the next element of 'input' */
 	}
 }
 
 /**
- * printCharacter - Outputs the character 'c' to the standard error.
+ * eputword - Outputs the character 'c' to the standard error.
  * @c: The character to be outputted.
  * Return: On success 1.
- * On error, returns -1 and sets errno accordingly.
+ * On error: returns -1 and sets errno accordingly.
  */
-int printCharacter(char c)
+int eputword(char c)
 {
 	static int index;
 	static char buffer[WRITE_BUFFER];
@@ -45,13 +45,13 @@ int printCharacter(char c)
 }
 
 /**
- * writeToFD - Writes the character 'c' to the specified file descriptor 'fd'.
+ * putFD - Writes the character 'c' to the specified file descriptor 'fd'.
  * @c: The character to be written.
  * @fd: The file descriptor to write to.
  * Return: On success 1.
  * On error, returns -1 and sets errno accordingly.
  */
-int writeToFD(char c, int fd)
+int putFD(char c, int fd)
 {
 	static int index;
 	static char buffer[WRITE_BUFFER];
@@ -70,13 +70,14 @@ int writeToFD(char c, int fd)
 }
 
 /**
- * printToFd - Writes the input string 'str' to the specified file descriptor 'fd'.
- * @str: The string to be printed.
+ * putsFdk - Writes the input string 'str' to the specified file descriptor 'fd'.
+ * @txt: The string to be printed.
  * @fd: The file descriptor to write to.
+ *
  * Return: The number of characters written.
  * On error, returns -1 and sets errno accordingly.
  */
-int printToFd(char *str, int fd)
+int putsFdk(char *str, int fd)
 {
 	int count = 0;
 
@@ -87,7 +88,7 @@ int printToFd(char *str, int fd)
 	{
 		/* Call the 'writeToFD' function with the current character of 'str',
 		   increment the pointer, and add the result to 'count' */
-		count += writeToFD(*str++, fd);
+		count += putFD(*str++, fd);
 	}
 
 	return count;
