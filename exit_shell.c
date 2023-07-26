@@ -60,7 +60,7 @@ int Dirchange(info_t *data)
 		}
 		putin(findEnv(data, "OLDPWD=")), _putchar('\n');
 		fgdir_look = /* TODO: what should this be? */
-			chdir((dir = findEnv(data, "OLDPWD=")) ? : "/");
+			chdir((dir = findEnv(data, "OLDPWD=")) ? dir : "/");
 	}
 	else
 		fgdir_look = chdir(data->argv[1]);
@@ -84,7 +84,7 @@ int Dirchange(info_t *data)
 
 int displayHelp(info_t *data)
 {
-	char **arg_argv; /* Arg_array would receive the argv pointer */
+	char **arg_array; /* Arg_array would receive the argv pointer */
 	putin("help call work. Function not yet executed \n");
 
 	if (0)

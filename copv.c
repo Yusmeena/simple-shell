@@ -58,7 +58,7 @@ void valChar(info_t *data, char *buffed, size_t *q, size_t z, size_t length)
 			y = length; /* Set b to a value of length */
 		}
 	}
-	if (data->cmdBufTye == CMD_OR) /* make sure cmdBufType is CMD_OR */
+	if (data->cmdBufType == CMD_OR) /* make sure cmdBufType is CMD_OR */
 	{
 		if (!data->worth)/* check if worth is non-zero */
 		{
@@ -131,11 +131,11 @@ int substituteVari(info_t *data)
 		list = node_begins(data->env, &data->argv[z][1], '=');
 		if (list) /* Check if a matching node can be found */
 		{
-			substitutedString(&(data->data->argv[z]),
+			substitutedString(&(data->argv[z]),
 				_strdupsd(strChr(list->txt, '=') + 1));
 			continue;
 		} /* Substitute the member with void or empty string */
-		substitutedString(&(data->argv[z], _strdusd(""));
+		substitutedString(&data->argv[z], _strdupsd(""));
 	}
 	return (0);
 }

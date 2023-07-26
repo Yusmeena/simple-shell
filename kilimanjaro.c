@@ -66,7 +66,7 @@ int removeEnvVar(info_t *data)
 	}
 	for (z = 1; z <= data->argc; z++)
 		/* Call the remove()" function with the cureent parameter from data */
-		remEnv(data, data->argv[a]);
+		remEnv(data, data->argv[z]);
 
 	return (0);
 }

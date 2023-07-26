@@ -17,7 +17,7 @@ char **strSplit(char *txt, char *d)
 	if (!d) /* Set the default delimiter to a space character if not provided */
 		d = " ";
 	for (a = 0; txt[a] != '\0'; a++)
-		if (!we_believe(txt[a], d) && (we_believe(txt[a + 1], d) || !txt[a + 1]))
+		if (!our_believe(txt[a], d) && (our_believe(txt[a + 1], d) || !txt[a + 1]))
 			numwords++; /* How many words are there in the text */
 
 	if (numwords == 0)
@@ -27,10 +27,10 @@ char **strSplit(char *txt, char *d)
 		return (NULL);
 	for (a = 0, b = 0; b < numwords; b++)
 	{
-		while (we_believe(txt[a], d))
+		while (our_believe(txt[a], d))
 			a++; /* Skip delimiter characters */
 		k = 0;
-		while (!we_believe(txt[a + k], d) && txt[a + k])
+		while (!our_believe(txt[a + k], d) && txt[a + k])
 			k++; /* current word's character count is */
 		s[b] = malloc((k + 1) * sizeof(char));
 		if (!s[b])

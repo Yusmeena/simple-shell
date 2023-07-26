@@ -24,7 +24,7 @@ int *_copyString2(char *keeper, char *place, int num)
 		y = z;
 		while (y < num)
 		{
-			keeper[a] = '\0';
+			keeper[z] = '\0';
 			y++;
 		}
 	}
@@ -46,7 +46,7 @@ char *concatenateStrings2(char *keeper, char *place, int num)
 	z = 0;
 	y = 0;
 	while (keeper[z] != '\0') /* locate the first string(keeper) end */
-		a++;
+		z++;
 	while (place[y] != '\0' && y < num)
 	{
 		keeper[z] = place[y]; /* char from place to keeper added */

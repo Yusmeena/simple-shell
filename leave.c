@@ -10,7 +10,7 @@
 char *_copystring(char *dest, char *src, int n)
 {
 	int i, j;
-	char *result = dest;
+	char *s = dest;
 
 	i = 0;
 	while (src[i] != '\0' && i < n - 1)
@@ -28,7 +28,7 @@ char *_copystring(char *dest, char *src, int n)
 			j++;
 		}
 	}
-	return (result);
+	return (s);
 }
 
 /**
@@ -55,7 +55,7 @@ char *concatenate_strings(char *dest, char *src, int n)
 	}
 		if (j < n)
 		dest[i] = '\0';
-		return (result);
+		return (s);
 }
 
 /**

@@ -73,7 +73,7 @@ void releaseData(info_t *data, int all)
 			freeList(&(data->alias));
 		freeStringArray(data->environ);
 		data->environ = NULL;
-		beFreed((void **)data->cmd_buf);
+		independ((void **)data->cmd_buf);
 		/* Check if 'readingFd' member of 'data' is greater than 2 and */
 		/* close the file descriptor */
 		if (data->readingFd > 2)

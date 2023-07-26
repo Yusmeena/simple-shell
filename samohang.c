@@ -39,7 +39,7 @@ void printError(info_t *data, char *errorMsg)
 {
 	eputin(data->fileName); /* Print the file name found in data->fileName */
 	eputin(": "); /* Print a colon and a space */
-	printDecimal(data->lineCount, STDERR_FILENO); /* Output the line count that is recorded in data->lineCount */
+	printDecimal(data->line_count, STDERR_FILENO); /* Output the line count that is recorded in data->lineCount */
 	eputin(": ");
 	eputin(data->argv[0]); /* Display the first argument from data->argv */
 	eputin(": ");

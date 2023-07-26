@@ -7,7 +7,7 @@
 */
 int showHistory(info_t *data)
 {
-	showList(data->history); /* Invoke a function to display history list */
+	displayList(data->history); /* Invoke a function to display history list */
 	return (0); /* If execution was executed, return 0 */
 }
 

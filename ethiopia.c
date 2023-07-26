@@ -1,3 +1,5 @@
+#include "shell.h"
+
 /**
 * *fillMem - fills memmory with a constant byte
 * @s: the pointer to the memory address

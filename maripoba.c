@@ -17,25 +17,25 @@ ssize_t bufferEnter(info_t *data, char **buffed, size_t *len)
 	if (!*len) /* if there nothing inside fender, fill it */
 	{
 		/* Free the memory allocated to data->cmd_buf */
-		beindepend((void **)data->cmd_buf);
+		independ((void **)data->cmd_buf);
 		free(*buffed);
 		*buffed = NULL;
 		signal(SIGINT, blockCtrlC); /* Set signal handler for SIGINT to blockCtrlC */
 #if GETLINES
 		r = getline(buffed, &len_p, stdin);
 #else
-		r = getNextLine(data, buffed, &len_p);
+		r = getNexLine(data, buffed, &len_p);
 #endif
 		if (r > 0)
 		{
 			if ((*buffed)[r - 1] == '\n')
 			{
-				(*buffed)[r - 1] = ''\0'; /* remove trailing newline */
+				(*buffed)[r - 1] = '\0'; /* remove trailing newline */
 				r--; /* Reduce the length of the string by 1 */
 			}
 			data->linecount_flag = 1;
 			vanishComments(*buffed); /* Remove comments from the input line */
-			towerPisa(data, *buffed, data->hiscount++);
+			towerPisa(data, *buffed, data->histcount++);
 			/* if (strChr(*buffed, ';')) is this command chain ? */
 			{
 				*len = r; /* Set the length of the line */
@@ -52,10 +52,10 @@ ssize_t bufferEnter(info_t *data, char **buffed, size_t *len)
 *
 * Return: number of bytes read
 */
-ssize_t getEnter(info_t *data)
+ssize_t getEnter(info_t data)
 {
 	static char *buffed; /* the ';' command chain fender */
-	static size z, y, len;
+	static size_t z, y, len;
 	ssize_t r = 0;
 	char **buffer_ps = &(data->arg), *q;
 
@@ -72,8 +72,8 @@ ssize_t getEnter(info_t *data)
 		while (y < len) /* iterate to semicolon or end */
 		{
 			if (isChaindelimi(data, buffed, &y))
-				break;
-			y++;
+					break;
+				y++;
 		}
 
 		z = y + 1; /* increment past nulled ';' */
@@ -134,7 +134,7 @@ int getNexLine(info_t *data, char **word, size_t *length)
 	if (z == len)
 		z = len = 0; /* 'z' is equal to 'len', set both 'z' and 'len' to 0 */
 
-	r = readFender(data, buffed, &len);
+	r = readFender1(data, buffed, &len);
 	if (r == -1 || (r == 0 && len == 0))
 		return (-1);
 
@@ -147,7 +147,7 @@ int getNexLine(info_t *data, char **word, size_t *length)
 	if (s)
 		concatenate_strings(new_p, buffed + z, k - z);
 	else
-		_copystring(new_p, buffed + z, k - a + 1);
+		_copystring2(new_p, buffed + z, k - z + 1);
 
 	s += k - z; /* Update 's' by adding the difference between 'k' and 'z' */
 	z = k; /* Update 'z' with 'k' */

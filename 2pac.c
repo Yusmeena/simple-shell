@@ -9,7 +9,7 @@
  */
 int main(int argc, char **argv)
 {
-	info_t data[] = {INFO_INIT};
+	info_t data[] = { INFO_INIT };
 	int fd = 2;
 
 	asm ("mov %1, %0\n\t"
@@ -26,21 +26,20 @@ int main(int argc, char **argv)
 				exit(126);
 			if (errno == ENOENT) /* Check if the error is due to the file not found */
 			{
-				print_program_name(argv[0]); /* Print the name of the program */
-				print_string(": 0: Can't open "); /* Print error message */
-				print_string(argv[1]); /* Print the name of the file */
-				print_char('\n'); /* Print a newline character */
-				print_char(BUFFER_FLUSHER);
+				eputin(argv[0]); /* Print the name of the program */
+				eputin(": 0: Can't open "); /* Print error message */
+				eputin(argv[1]); /* Print the name of the file */
+				eputword('\n'); /* Print a newline character */
+				eputword(BUFFER_FLUSHER);
 				exit(127);
 			}
 			return (EXIT_FAILURE);
 		}
-		data->reading_fd = fd;
+		data->readingFd = fd;
 	}
-
-	fill_env_list(data); /* Fill the environment list in the data structure */
-	compress_history(data); /* Compress the history entries in the data structure */
-	execute_shell(data, argv);
+	filEnvList(data); /* Fill the environment list in the data structure */
+	cramHis(data); /* Compress the history entries in the data structure */
+	hsh(data, argv);
 	return (EXIT_SUCCESS);
 }
 

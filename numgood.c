@@ -82,7 +82,7 @@ int _putchar(char c)
 	static int z;
 	static char buffed[WRITE_BUFFER];
 	/* Confirm the charater's flushing behavior or whether the buffer is full */
-	if (c == BUFFER_FLUSHER || z >= WRITE_FLUSHER)
+	if (c == BUFFER_FLUSHER || z >= WRITE_BUFFER)
 	{
 		write(1, buffed, z); /* To standard output, send characters in the buffer */
 		z = 0;
