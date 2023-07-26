@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
- * convertStringToInt - Convert a string to an integer
+ * errAtoi - Convert a string to an integer
  * @str: The string to be converted
  *
  * Return: 0 if no numbers in the string, converted number otherwise
  *       -1 on error
  */
-int convertStringToInt(char *str)
+int errAtoi(char *str)
 {
 	int index = 0;
 	unsigned long int answer = 0;
@@ -31,15 +31,15 @@ int convertStringToInt(char *str)
 }
 
 /**
- * printError - Output an error message
+ * display_err - Output an error message
  * @data: The parameter and return data struct
  * @errorMsg: String containing the specified error type
  */
-void printError(info_t *data, char *errorMsg)
+void display_err(info_t *data, char *errorMsg)
 {
-	eputin(data->fileName); /* Print the file name found in data->fileName */
+	eputin(data->fname); /* Print the file name found in data->fileName */
 	eputin(": "); /* Print a colon and a space */
-	printDecimal(data->line_count, STDERR_FILENO); /* Output the line count that is recorded in data->lineCount */
+	printDD(data->line_count, STDERR_FILENO); /* Output the line count that is recorded in data->lineCount */
 	eputin(": ");
 	eputin(data->argv[0]); /* Display the first argument from data->argv */
 	eputin(": ");
@@ -47,59 +47,59 @@ void printError(info_t *data, char *errorMsg)
 }
 
 /**
- * printDecimal - Display a decimal (integer) number in base 10
+ * printDD - Display a decimal (integer) number in base 10
  * @input: The number to be displayed
  * @fd: The file descriptor to write the output to
  *
  * Return: The number of characters printed
  */
-int printDecimal(int input, int fd)
+int printDD(int input, int fd)
 {
-	int (*putCharFunc)(char) = _putchar;
+	int (*__putchar)(char) = _putchar;
 	int index, count = 0;
-	unsigned int absoluteValue, current;
+	unsigned int _abs_, current;
 
 	if (fd == STDERR_FILENO)
-		putCharFunc = eputword;
+		__putchar = eputword;
 
 	if (input < 0)
 	{
-		absoluteValue = -input;
-		putCharFunc('-');
+		_abs_ = -input;
+		__putchar('-');
 		count++;
 	}
 	else
-		absoluteValue = input;
+		_abs_ = input;
 
-	current = absoluteValue;
+	current = _abs_;
 	for (index = 1000000000; index > 1; index /= 10)
 	{
-		if (absoluteValue / index)
+		if (_abs_ / index)
 		{
-			putCharFunc('0' + current / index);
+			__putchar('0' + current / index);
 			count++;
 		}
 		current %= index;
 	}
-	putCharFunc('0' + current);
+	__putchar('0' + current);
 	count++;
 
 	return (count);
 }
 
 /**
- * changeNumberToString - Converts a number to a string representation
+ * changeNUm - Converts a number to a string representation
  * @num: Number to be converted
  * @base: Base for conversion
  * @flags: Argument flags
  *
  * Return: String
  */
-char *changeNumberToString(long int num, int base, int flags)
+char *changeNUm(long int num, int base, int flags)
 {
 	static char *array;
-	static char buffer[50];
-	char negative = 0;
+	static char fender[50];
+	char ivan = 0;
 	char *word;
 	unsigned long n = num;
 
@@ -110,7 +110,7 @@ char *changeNumberToString(long int num, int base, int flags)
 	}
 
 	array = flags & CONVERT_LOWER ? "0123456789abcdef" : "0123456789ABCDEF";
-	word = &buffer[49];
+	word = &fender[49];
 	*word = '\0';
 
 	do	{
@@ -118,17 +118,17 @@ char *changeNumberToString(long int num, int base, int flags)
 		n /= base;
 	} while (n != 0);
 
-	if (negative)
-		*--word = negative;
+	if (ivan)
+		*--word = ivan;
 
 	return (word);
 }
 
 /**
- * removeComments - Replaces first instance of '#' with '\0'
+ * vanishComments - Replaces first instance of '#' with '\0'
  * @buffer: Address of the string to be changed
  */
-void removeComments(char *buffer)
+void vanishComments(char *buffer)
 {
 	int index;
 

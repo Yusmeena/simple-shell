@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
- * isExecutableCommand - checks if a file is an executable command
+ * thisCmd - checks if a file is an executable command
  * @data: the data struct
  * @path: path to the file
  *
  * Return: 1 if true, 0 otherwise
  */
-int isExecutableCommand(info_t *data, char *path)
+int thisCmd(info_t *data, char *path)
 {
 	struct stat st;
 
@@ -43,14 +43,14 @@ char *duplicateSubstring(char *pathstr, int start, int stop)
 }
 
 /**
- * findCommandInPath - Locates a command in the PATH string
+ * locate_Path - Locates a command in the PATH string
  * @data: the data struct
  * @pathstr: the PATH string
  * @cmd: the command to find
  *
  * Return: full path of the command if found or NULL
  */
-char *findCommandInPath(info_t *data, char *pathstr, char *cmd)
+char *locate_Path(info_t *data, char *pathstr, char *cmd)
 {
 	int a = 0, curr_pos = 0;
 	char *path;
@@ -61,7 +61,7 @@ char *findCommandInPath(info_t *data, char *pathstr, char *cmd)
 	/* If 'cmd' has a length greater than 2 and starts with "./" */
 	if ((stringLen(cmd) > 2) && beginWith(cmd, "./"))
 	{
-		if (isExecutableCommand(data, cmd)) /* Verify "cmd" corresponds to a legit command */
+		if (thisCmd(data, cmd)) /* Verify "cmd" corresponds to a legit command */
 			return (cmd);
 	}
 
@@ -81,7 +81,7 @@ char *findCommandInPath(info_t *data, char *pathstr, char *cmd)
 				strConcat(path, cmd);
 			}
 
-			if (isExecutableCommand(data, path)) /* Verify 'path' relates to a valid command */
+			if (thisCmd(data, path)) /* Verify 'path' relates to a valid command */
 				return (path);
 
 			if (!pathstr[a]) /* End of 'pathstr' is reached */

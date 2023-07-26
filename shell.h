@@ -108,7 +108,7 @@ int locateInner(info_t *);
 void lookForCmd(info_t *);
 void forkingCmd(info_t *);
 int thisCmd(info_t *, char *);
-char *duplicationJustu(char *, int, int);
+char *duplicateSubstring(char *, int, int);
 char *locate_path(info_t *, char *, char *);
 int roundHsh(char **);
 void eputin(char *);
@@ -124,9 +124,6 @@ char *_strdupsd(const char *);
 void putin(char *);
 int _putchar(char);
 char *_copystring2(char *, char *, int);
-
-
-
 char *concatenate_strings(char *, char *, int);
 char *strChr(char *, char);
 char **strSplit(char *, char *);
@@ -149,8 +146,6 @@ int Dirchange(info_t *);
 int displayHelp(info_t *);
 int displayHistory(info_t *);
 int mineAlias(info_t *);
-
-
 ssize_t getEnter(info_t);
 int getNexLine(info_t *, char **, size_t *);
 void blockCtrlC(int);
@@ -170,8 +165,6 @@ int genHistory(info_t *data);
 int cramHis(info_t *data);
 int towerPisa(info_t *data, char *buffed, int linecount);
 int numKimbad(info_t *data);
-
-
 list_t *add_node(list_t **, const char *, int);
 list_t *add_node_finish(list_t **, const char *, int);
 size_t showListString(const list_t *);

@@ -21,7 +21,7 @@ int hsh(info_t *data, char **av)
 		input_result = getopt(data); /* Obtain input and save the result in 'input_result' */
 		if (input_result != -1)
 		{
-			fixData(data, av);
+			prepareData(data, av);
 			innerRet = locateInner(data); /* Find the inner built-in command and save the result in 'inner_ret' */
 			if (innerRet == -1)
 				lookForCmd(data);
