@@ -57,7 +57,7 @@ void prepareData(info_t *data, char **arg_vector)
  */
 void releaseData(info_t *data, int all)
 {
-	freeStringArray(data->argv);
+	freeStrArray(data->argv);
 	data->argv = NULL;
 	data->path = NULL;
 	/* Make sure the 'all' argument is true */
@@ -71,7 +71,7 @@ void releaseData(info_t *data, int all)
 			freeList(&(data->history));
 		if (data->alias)
 			freeList(&(data->alias));
-		freeStringArray(data->environ);
+		freeStrArray(data->environ);
 		data->environ = NULL;
 		independ((void **)data->cmd_buf);
 		/* Check if 'readingFd' member of 'data' is greater than 2 and */

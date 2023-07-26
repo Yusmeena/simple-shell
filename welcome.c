@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
-* *_copyString2 - thicopy string
+* *_copyString2 - this copy string
 * @keeper: the destination string to copy to
 * @place: the string source
 * @num: number of characters to be copy

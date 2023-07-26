@@ -140,7 +140,7 @@ int getNexLine(info_t *data, char **word, size_t *length)
 
 	c = strChr(buffed + z, '\n');
 	k = c ? 1 + (unsigned int)(c - buffed) : len;
-	new_p = reallocateMemory(q, s, s ? s + k : k + 1);
+	new_p = reallocateMem(q, s, s ? s + k : k + 1);
 	if (!new_p) /* MALLOC FAILURE! */
 		return (q ? free(q), -1 : -1);
 
