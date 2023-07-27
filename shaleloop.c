@@ -18,7 +18,7 @@ int hsh(info_t *data, char **av)
 		if (intmode(data)) /* Verify whether 'data' is involved */
 			putin("$ "); /* Print the prompt, obtain input and save the result in 'input_result' */
 		eputword(BUFFER_FLUSHER);
-		input_result = getopt(data); /* Obtain input and save the result in 'input_result' */
+		input_result = getEnter(data); /* Obtain input and save the result in 'input_result' */
 		if (input_result != -1)
 		{
 			prepareData(data, av);
@@ -145,7 +145,7 @@ void forkingCmd(info_t *data)
 		/* Execute the command using execve() */
 		if (execve(data->path, data->argv, getEnviron(data)) == -1)
 		{
-			free_data(data, 1);
+			releaseData(data, 1);
 			if (errno == EACCES) /* Error is due to permission denied */
 				exit(126);
 			exit(1);

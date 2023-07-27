@@ -84,9 +84,10 @@ int Dirchange(info_t *data)
 
 int displayHelp(info_t *data)
 {
-	char **arg_array; /* Arg_array would receive the argv pointer */
-	putin("help call work. Function not yet executed \n");
+	char **arg_array; 
 
+	arg_array = data->argv; /* Arg_array take the argv pointer */
+	putin("help call work. Function not yet executed \n");
 	if (0)
 		putin(*arg_array); /* tem att_unused workaround */
 	return (0);

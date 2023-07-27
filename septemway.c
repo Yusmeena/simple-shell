@@ -55,7 +55,7 @@ list_t *add_node_finish(list_t **head, const char *text, int num)
 	if (!new_node)
 		return (NULL);
 
-	fill_memory((void *)new_node, 0, sizeof(list_t));
+	fillMem((void *)new_node, 0, sizeof(list_t));
 	new_node->num = num; /* set new node's "num" value */
 
 	if (text)

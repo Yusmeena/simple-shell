@@ -1,14 +1,14 @@
 #include "shell.h"
 
 /**
-* *_copyString2 - this copy string
+* *_copystring2 - this copy string
 * @keeper: the destination string to copy to
 * @place: the string source
 * @num: number of characters to be copy
 * Return: he string copied outcome
 */
 
-int *_copyString2(char *keeper, char *place, int num)
+int *_copystring2(char *keeper, char *place, int num)
 {
 	int z, y;
 	char *s = keeper;
@@ -24,7 +24,7 @@ int *_copyString2(char *keeper, char *place, int num)
 		y = z;
 		while (y < num)
 		{
-			keeper[z] = '\0';
+			keeper[y] = '\0';
 			y++;
 		}
 	}

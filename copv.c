@@ -151,6 +151,6 @@ int substituteVari(info_t *data)
 int substitutedString(char **plant, char *harvest)
 {
 	free(*plant); /* Free memmory pointed to by pointer plant */
-	*plant = harvest; /* new value would be added to the value pointed to by plant */
+	*plant = harvest; /* new value would value pointed to*/
 	return (1);
 }

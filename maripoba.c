@@ -52,7 +52,7 @@ ssize_t bufferEnter(info_t *data, char **buffed, size_t *len)
 *
 * Return: number of bytes read
 */
-ssize_t getEnter(info_t data)
+ssize_t getEnter(info_t *data)
 {
 	static char *buffed; /* the ';' command chain fender */
 	static size_t z, y, len;
@@ -72,8 +72,8 @@ ssize_t getEnter(info_t data)
 		while (y < len) /* iterate to semicolon or end */
 		{
 			if (isChaindelimi(data, buffed, &y))
-					break;
-				y++;
+				break;
+			y++;
 		}
 
 		z = y + 1; /* increment past nulled ';' */
@@ -127,8 +127,6 @@ int getNexLine(info_t *data, char **word, size_t *length)
 	size_t k;
 	ssize_t r = 0, s = 0;
 	char *q = NULL, *new_p = NULL, *c;
-
-	q = *word NULL, *new_p = NULL, *c;
 
 	q = *word; /* Give 'q' the value that 'word' is pointing at */
 	if (q && length)

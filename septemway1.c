@@ -39,21 +39,21 @@ char **list_to_strings(list_t *head)
 	if (!strings_array) /* Memory allocation fails, return NULL */
 		return (NULL);
 
-	for (index = 0; list; list = list->next, index++) /* Loop through the linked list */
+	for (list_size = 0; list; list = list->next, list_size++) /* Loop through the linked list */
 	{
-		text = malloc(list_len(list->txt) + 1);
+		text = malloc(stringLen(list->txt) + 1);
 		if (!text)
 		{
-			for (size_t i = 0; i < index; i++)
-				free(strings_array[i]);
+			for (index = 0; index < list_size; index++)
+				free(strings_array[index]);
 			free(strings_array);
 			return (NULL);
 		}
 
 		text = copyString(text, list->txt); /* Copy content of 'list->txt' to 'text' */
-		strings_array[index] = text; /* Assign 'text' to the current position in 'strings_array' */
+		strings_array[list_size] = text; /* Assign 'text' to the current position in 'strings_array' */
 	}
-	strings_array[index] = NULL; /* Set the last element of 'strings_array' to NULL */
+	strings_array[list_size] = NULL; /* Set the last element of 'strings_array' to NULL */
 	return (strings_array);
 }
 

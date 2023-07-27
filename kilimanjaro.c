@@ -5,7 +5,7 @@
 * @data: Struct argument
 * Return: Always 0
 */
-int showMyEnv(info_t data)
+int showMyEnv(info_t *data)
 {
 	showListString(data->env); /* Show the contents of the "env" List */
 	return (0); /* Return 0 to indicate successful execution */

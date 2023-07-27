@@ -35,7 +35,7 @@ int errAtoi(char *str)
  * @data: The parameter and return data struct
  * @errorMsg: String containing the specified error type
  */
-void display_err(info_t *data, char *errorMsg)
+void display_err(info_t *data, char *estr)
 {
 	eputin(data->fname); /* Print the file name found in data->fileName */
 	eputin(": "); /* Print a colon and a space */
@@ -43,7 +43,7 @@ void display_err(info_t *data, char *errorMsg)
 	eputin(": ");
 	eputin(data->argv[0]); /* Display the first argument from data->argv */
 	eputin(": ");
-	eputin(errorMsg); /* Print the supplied error message */
+	eputin(estr); /* Print the supplied error message */
 }
 
 /**
@@ -106,7 +106,7 @@ char *changeNUm(long int num, int base, int flags)
 	if (!(flags & CONVERT_UNSIGNED) && num < 0)
 	{
 		n = -num;
-		negative = '-';
+		ivan = '-';
 	}
 
 	array = flags & CONVERT_LOWER ? "0123456789abcdef" : "0123456789ABCDEF";
