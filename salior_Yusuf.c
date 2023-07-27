@@ -80,6 +80,14 @@ int showAlias(list_t *list)
 	}
 	return (1); /* if tge alias can't be identified or show, return 1 */
 }
+
+/**
+* ourAlias - replicate the alias builtin (man alias)
+* @data: Strucr entaining important parameters. Used to maintain constant function proptype
+*
+* Return : Always 0
+*/
+
 int ourAlias(info_t *data)
 {
 	int z = 0;

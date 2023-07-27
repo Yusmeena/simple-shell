@@ -45,7 +45,7 @@ int eputword(char c)
 }
 
 /**
- * putFD - Write the character 'c' to the specified file descriptor 'fd'.
+ * putFd - Write the character 'c' to the specified file descriptor 'fd'.
  * @c: The character to be written.
  * @fd: The file descriptor to write to.
  *

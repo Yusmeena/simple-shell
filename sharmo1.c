@@ -71,7 +71,7 @@ int putFD(char c, int fd)
 
 /**
  * putsFdk - Writes the input string 'str' to the specified file descriptor 'fd'.
- * @txt: The string to be printed.
+ * @str: The string to be printed.
  * @fd: The file descriptor to write to.
  *
  * Return: The number of characters written.

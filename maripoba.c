@@ -95,6 +95,7 @@ ssize_t getEnter(info_t data)
 * readFender1 - This reads a fender
 * @data: argument struct
 * @buffed: fender
+* @z: size
 *
 * Return: r
 */
@@ -102,6 +103,7 @@ ssize_t getEnter(info_t data)
 ssize_t readFender1(info_t *data, char *buffed, size_t *z)
 {
 	ssize_t r = 0; /* variable to store output operation */
+
 	if (*z)
 		return (0); /* valur pointed to 'z' is non-zero, return 0 */
 	/* Using maximum length of READ_BUFFER, read buffed from data->readingFd */
@@ -114,7 +116,7 @@ ssize_t readFender1(info_t *data, char *buffed, size_t *z)
 * getNexLine - retrives the next line of input from STDIN
 * @data: argument struct
 * @word: address of pointer to fender, preallocated or NULL
-* #length: size of preallocated word fender if not NULL
+* @length: size of preallocated word fender if not NULL
 *
 * Return: s
 */
