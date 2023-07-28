@@ -8,7 +8,7 @@
 * Return: he string copied outcome
 */
 
-int *_copystring2(char *keeper, char *place, int num)
+char *_copystring2(char *keeper, char *place, int num)
 {
 	int z, y;
 	char *s = keeper;

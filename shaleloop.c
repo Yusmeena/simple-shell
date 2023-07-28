@@ -14,7 +14,7 @@ int hsh(info_t *data, char **av)
 
 	while (input_result != -1 && innerRet != -2)
 	{
-		releaseData(data); /* Cleanup 'data' */
+		initializeData(data); /* Cleanup 'data' */
 		if (intmode(data)) /* Verify whether 'data' is involved */
 			putin("$ "); /* Print the prompt, obtain input and save the result in 'input_result' */
 		eputword(BUFFER_FLUSHER);

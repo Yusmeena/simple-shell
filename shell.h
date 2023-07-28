@@ -74,9 +74,6 @@ typedef struct takeData
 	char *fname;
 	list_t *env;
 	list_t *history;
-	char *fname;
-	list_t *env;
-	list_t *history;
 	list_t *alias;
 	char **environ;
 	int env_changed;
